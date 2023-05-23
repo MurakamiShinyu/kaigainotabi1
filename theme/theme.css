@@ -1,0 +1,460 @@
+@charset "UTF-8";
+
+:root {
+  --main-font-family: "Noto Serif CJK JP", "YuMincho", "Yu Mincho", serif;
+  --gothic-font-family: "Noto Sans CJK JP", "YuGothic", "Yu Gothic", sans-serif;
+  --heading-gothic-font-family: "Noto Sans CJK JP", "YuGothic", "Yu Gothic", sans-serif;
+  --heading-font-family: "Noto Serif CJK JP", "YuMincho", "Yu Mincho", serif;
+
+  /* A5 14q 32字x29行 */
+  --page-width: 559.370px;
+  --page-height: 793.701px;
+  --page-margin-top: 62.3505px;
+  --page-margin-side: 71.6px;
+  --page-margin-bottom: 62.3505px;
+  --page-header-font-size: 12px;
+  --page-footer-font-size: 11px;
+  --page-header-margin: 19px;
+  --page-footer-margin: 19px;
+  --body-font-size: 13px;
+  --body-line-height: 23px;
+  --toc-font-size: 14.3px;
+  --h1-font-size: 24.5px;
+  --h2-font-size: 14px;
+  --h3-font-size: 13px;
+  --figcaption-font-size: 11px;
+}
+
+@page {
+  size: var(--page-width) var(--page-height);
+  margin: var(--page-margin-top) var(--page-margin-side) var(--page-margin-bottom);
+  font-family: var(--heading-font-family);
+  line-height: 1;
+
+  @bottom-center {
+    font-size: var(--page-footer-font-size);
+    content: "- " counter(page) " -";
+    margin-top: var(--page-footer-margin);
+    vertical-align: top;
+    content: "- " counter(page) " -";
+  }
+}
+
+@page :nth(1) {
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page :blank {
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page :left {
+  @top-left {
+    content: string(chap-title, first);
+    font-size: var(--page-header-font-size);
+    margin-left: var(--body-font-size);
+    margin-bottom: var(--page-header-margin);
+    font-weight: 500;
+    vertical-align: bottom;
+  }
+}
+
+@page :right {
+  @top-right {
+    content: string(sect-title, first);
+    font-size: var(--page-header-font-size);
+    margin-right: var(--body-font-size);
+    margin-bottom: var(--page-header-margin);
+    vertical-align: bottom;
+  }
+}
+
+html {
+  font-family: var(--main-font-family);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  text-align: justify;
+  widows: 1;
+  orphans: 1;
+  text-spacing: auto;
+}
+
+p {
+  text-indent: 1em;
+  hanging-punctuation: first allow-end;
+  margin: 0;
+  /* ルビが先頭行にあると行がずれる不具合対策 */
+  padding-block-start: 3px;
+  margin-block-start: -3px;
+  margin-break: keep;
+  font-kerning: none;
+}
+
+/* 文字間をわずかに詰めたい／開けたい */
+.justify-compress {
+  letter-spacing: -0.02em;
+}
+
+.justify-space {
+  letter-spacing: 0.005em;
+}
+
+/* 改ページのためのクラス定義 */
+.break-before {
+  break-before: page;
+}
+
+.break-after {
+  break-after: page;
+}
+
+/* 改丁 */
+.break-recto {
+  break-before: recto !important;
+  /* 単なる改ページよりも優先 */
+}
+
+.break-verso {
+  break-before: verso !important;
+}
+
+/* 章で改丁 */
+.chapter {
+  break-before: recto;
+}
+
+/* 章の柱 */
+/* 章を複数ファイルに分けている場合、各ファイルの最初の節見出しに属性 data-chap-title で章タイトルを入れること */
+[data-chap-title] {
+  string-set: chap-title attr(data-chap-title);
+}
+
+/* 節の柱 */
+[data-sect-title] {
+  string-set: sect-title attr(data-sect-title);
+}
+
+[data-chap-title][data-sect-title] {
+  string-set: chap-title attr(data-chap-title), sect-title attr(data-sect-title);
+}
+
+h1 {
+  font-family: var(--gothic-font-family);
+  font-feature-settings: "palt";
+  font-size: var(--h1-font-size);
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: -0.25em;
+  break-before: page;
+}
+
+h1>.chapno {
+  font-weight: 500;
+  display: block;
+}
+
+h1>.period {
+  font-size: 69%;
+  font-weight: 500;
+  line-height: 1.73;
+  display: block;
+}
+
+h2 {
+  font-family: var(--heading-gothic-font-family);
+  font-feature-settings: "palt";
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  line-height: var(--body-line-height);
+  text-align: start;
+  word-break: keep-all;
+  margin-block-start: 0;
+  padding-block-start: calc(var(--body-line-height) * 0.5);
+  margin-block-end: calc(var(--body-line-height) * 0.5);
+}
+
+nav>h2,
+h2.chap-foreword,
+h2.chap-afterword,
+h2.chap-toc {
+  font-weight: 700;
+}
+
+.chap-foreword {
+  break-before: page;
+}
+
+h3 {
+  font-family: var(--heading-gothic-font-family);
+  font-feature-settings: "palt";
+  font-size: var(--h3-font-size);
+  font-weight: 500;
+  line-height: var(--body-line-height);
+  margin-block-start: 0;
+  padding-block-start: calc(var(--body-line-height) * 0.5);
+  margin-block-end: calc(var(--body-line-height) * 0.5);
+}
+
+/* コラム */
+section.column1 {
+  font-family: var(--gothic-font-family);
+  font-weight: 400;
+}
+
+b,
+strong {
+  font-family: var(--gothic-font-family);
+  font-weight: 700;
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+.noindent,
+.noindent p {
+  text-indent: 0;
+}
+
+/* Front Matter */
+#foreword,
+#toc {
+  break-before: page;
+}
+
+/* TOC */
+
+#toc {
+  font-size: var(--toc-font-size);
+}
+
+#toc h2 {
+  text-align: center;
+}
+
+#toc h2 .title {
+  display: block;
+  font-size: 133%;
+  line-height: 2rlh;
+}
+
+nav ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+nav li {
+  text-indent: -2em;
+  margin-inline-start: 2em;
+  margin-inline-end: 1em;
+}
+
+nav li li {
+  text-indent: -1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  break-inside: avoid;
+}
+
+nav li a {
+  color: currentColor;
+  font-family: var(--heading-font-family);
+  font-feature-settings: "palt";
+}
+
+nav li a::after {
+  content: leader("·") "\2006" target-counter(attr(href url), page);
+  margin-inline-start: 0.2em;
+  margin-inline-end: -1em;
+}
+
+nav li strong {
+  font-family: var(--heading-gothic-font-family);
+  font-feature-settings: "palt";
+  white-space: nowrap;
+}
+
+.chap-toc nav>ul>li:first-child strong,
+.chap-toc nav>ul>li:last-child strong {
+  font-weight: 400;
+}
+
+/* Back Matter */
+
+/* 著者略歴 */
+.biography,
+.biography p {
+  text-indent: 0;
+  font-family: var(--main-font-family);
+  font-size: var(--body-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+  font-feature-settings: "palt";
+}
+
+/* 奥付 */
+section:is(#colophon, :has(>#colophon)) {
+  float: bottom;
+  float-reference: page;
+}
+
+section:is(#colophon, :has(>#colophon)) table {
+  border-spacing: 0;
+}
+
+section:is(#colophon, :has(>#colophon)) :is(th, td) {
+  padding: 0;
+}
+
+section:is(#colophon, :has(>#colophon)) th:first-child {
+  inline-size: 4em;
+}
+
+/* 地図出典表示 */
+.map-source {
+  margin-block-start: 2em;
+  font-family: var(--gothic-font-family);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-feature-settings: "palt";
+}
+
+.map-source p {
+  text-indent: 0;
+  margin-block-end: 1em;
+}
+
+.map-source ul {
+  padding-inline-start: 2em;
+  margin: 0;
+}
+
+/* Photo */
+/* top float */
+.photo-top {
+  float-reference: page;
+  float: top;
+  margin-bottom: 1em;
+}
+
+/* bottom float */
+.photo-bottom {
+  float-reference: page;
+  float: bottom;
+  margin-top: 1em;
+}
+
+/* one photo */
+.photo1 {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  break-inside: avoid;
+}
+
+/* 直前で改ページし、1つのphotoをtopに配置し、直後に改ページ */
+.photo1-break {
+  break-before: page;
+  break-after: page;
+  break-inside: avoid;
+}
+
+/* two photos */
+.photo2 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  break-before: page;
+  break-inside: avoid;
+}
+
+/* two photos float*/
+.photo2-float {
+  float-reference: page;
+  float: top;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* 2つの写真を横に配置*/
+.photo2-top {
+  float-reference: page;
+  float: top;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+figure {
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  break-inside: avoid;
+}
+
+img[src*="/photo"] {
+  max-width: 100%;
+  max-height: 310px;
+}
+
+figure>img {
+  display: block;
+  margin-inline: auto;
+}
+
+figcaption {
+  font-family: var(--heading-font-family);
+  font-feature-settings: "palt";
+  font-size: var(--figcaption-font-size);
+  line-height: 1.5;
+  margin-block-start: 0.5em;
+}
+
+.fig-vcenter figcaption {
+  margin-block-start: 1em;
+}
+
+/* 図版をページの天地中央に配置 */
+.fig-vcenter {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  break-before: page;
+  break-inside: avoid;
+}
+
+/* 右90度回転した図版をページ中央に配置 */
+.fig-sideways {
+  width: 100vw;
+  height: 100vh;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  break-before: page;
+  break-inside: avoid;
+}
+
+/* 署名・日付 */
+.signature {
+  text-align: right;
+  margin-block-start: var(--body-line-height);
+  break-inside: avoid;
+}
+
+/* タイトル字間ツメ */
+.h-compress:not(section) {
+  letter-spacing: -0.01em;
+}

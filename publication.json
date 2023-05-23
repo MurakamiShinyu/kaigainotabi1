@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://www.w3.org/ns/pub-context"
+  ],
+  "type": "Book",
+  "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
+  "author": "村上真完・ヤエ",
+  "inLanguage": "ja",
+  "dateModified": "2023-05-23T05:31:45.963Z",
+  "name": "海外の旅〔上〕",
+  "readingOrder": [
+    {
+      "url": "text/index.html",
+      "name": "海外の旅〔上〕"
+    },
+    {
+      "url": "text/chap01.html",
+      "name": "はじめに"
+    },
+    {
+      "url": "text/chap02.html",
+      "name": "はじめに"
+    },
+    {
+      "url": "text/chap03.html",
+      "name": "はじめに"
+    },
+    {
+      "url": "text/chap04.html",
+      "name": "はじめに"
+    },
+    {
+      "url": "text/chap05.html",
+      "name": "はじめに"
+    },
+    {
+      "url": "text/backmatter.html",
+      "name": "著者略歴"
+    }
+  ],
+  "resources": [],
+  "links": []
+}
