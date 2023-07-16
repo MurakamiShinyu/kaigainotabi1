@@ -153,7 +153,7 @@
 
 <div class="photo-top">
 
-![⑥トロントの公園](../images/chap03/photo00006.jpg){display: block height=280}
+![⑥トロントの公園](../images/chap03/photo00006.jpg){height=280}
 
 </div>
 
