@@ -1,6 +1,7 @@
-<style>
-@page :first { counter-reset: page 6; }
-</style>
+---
+lang: ja
+title: 一／初めてのヨーロッパの旅
+---
 
 <h1 class="chapter" id="chap01" data-chap-title="一　初めてのヨーロッパの旅">
   <span class="chapno">一</span>

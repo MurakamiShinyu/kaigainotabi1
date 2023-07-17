@@ -1,6 +1,7 @@
-<style>
-@page :first { counter-reset: page 210; }
-</style>
+---
+lang: ja
+title: 五／南インドとスリランカの旅
+---
 
 <h1 class="chapter" id="chap05" data-chap-title="五　南インドとスリランカの旅">
   <span class="chapno">五</span>

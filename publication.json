@@ -7,7 +7,7 @@
   "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
   "author": "村上真完・ヤエ",
   "inLanguage": "ja",
-  "dateModified": "2023-05-31T06:13:51.687Z",
+  "dateModified": "2023-07-17T02:53:23.182Z",
   "name": "海外の旅〔上〕",
   "readingOrder": [
     {
@@ -16,27 +16,27 @@
     },
     {
       "url": "text/chap01.html",
-      "name": "はじめに"
+      "name": "一／初めてのヨーロッパの旅"
     },
     {
       "url": "text/chap02.html",
-      "name": "はじめに"
+      "name": "二／2回目のヨーロッパの旅"
     },
     {
       "url": "text/chap03.html",
-      "name": "はじめに"
+      "name": "三／カナダとアメリカの旅"
     },
     {
       "url": "text/chap04.html",
-      "name": "はじめに"
+      "name": "四／タイ、ミャンマー、インドへの旅"
     },
     {
       "url": "text/chap05.html",
-      "name": "はじめに"
+      "name": "五／南インドとスリランカの旅"
     },
     {
       "url": "text/backmatter.html",
-      "name": "著者略歴"
+      "name": "奥付"
     }
   ],
   "resources": [],

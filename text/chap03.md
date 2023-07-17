@@ -1,6 +1,7 @@
-<style>
-@page :first { counter-reset: page 106; }
-</style>
+---
+lang: ja
+title: 三／カナダとアメリカの旅
+---
 
 <h1 class="chapter" id="chap03" data-chap-title="三　カナダとアメリカの旅">
   <span class="chapno">三</span>

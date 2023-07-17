@@ -1,3 +1,8 @@
+---
+lang: ja
+title: 奥付
+---
+
 ## 著者略歴 {.break-recto}
 
 <div class="biography">

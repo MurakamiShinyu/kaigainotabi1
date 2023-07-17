@@ -24,6 +24,6 @@ module.exports = {
   // toc: true, // whether generate and include toc.html or not (does not affect manifest.json), default to `true`. if `string` given, use it as a custom toc.html.
   // cover: './cover.png', // cover image. default to undefined.
   // workspaceDir: '.vivliostyle',
-  http: true,
+  // http: true,
   timeout: 1000000,
 }

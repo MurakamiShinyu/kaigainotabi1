@@ -1,6 +1,7 @@
-<style>
-@page :first { counter-reset: page 0; }
-</style>
+---
+lang: ja
+title: 海外の旅〔上〕
+---
 
 <h1>海外の旅<br/><span style="font-weight:400">〔</span>上<span style="font-weight:400">〕</span></h1>
 

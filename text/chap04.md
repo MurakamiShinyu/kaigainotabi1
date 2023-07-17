@@ -1,6 +1,7 @@
-<style>
-@page :first { counter-reset: page 164; }
-</style>
+---
+lang: ja
+title: 四／タイ、ミャンマー、インドへの旅
+---
 
 <h1 class="chapter" id="chap04" data-chap-title="四　タイ、ミャンマー、インドの旅">
   <span class="chapno">四</span>
